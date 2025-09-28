@@ -1,7 +1,5 @@
 <template>
   <div class="cover">
-    <!-- <img src="../../public/icon/Yandex-Logo-PNG-HD-Images.png" 
-        style="width: 40px; position: static;"> -->
     <div class="shell">
         <input type="text" v-model="textInInput" 
             class="searchInput" placeholder="Найдется всё" 
@@ -28,30 +26,34 @@ function handleSearch() {
 
 <style scoped>
 .cover {
-  width: clamp(300px, 90vw, 960px);
+  width: clamp(300px, 80vw, 960px);
   margin: 0 auto;
-  border: 3px solid black;
+  border-radius: 20px;
+  background-color: rgb(48, 48, 48);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 15px;
   gap: 20px;
   position: relative;
 }
 
 .searchInput {
-  padding: 15px 120px;
+  padding: 15px 300px 15px 15px;
   flex: 1;
   font-size: 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   min-width: 200px;
-  transition: transform 1s ease; 
+  transition: transform 1s ease, background-color 0.6s ease;
+  background-color: rgb(59, 59, 59);
+  color: rgb(219, 219, 219);
+  text-align: left;
 }
 .searchInput:focus {
-    transform: translateX(-220px);
-    border: 0px solid gray;
-    background-color: rgb(204, 204, 204);
+    transform: translateX(-10vh);
+    background-color: rgb(61, 61, 61);
+    outline: none;
 }
 
 
