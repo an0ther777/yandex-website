@@ -3,8 +3,9 @@
   <a href="#mainImg">
     <img src="../public/icon/Yandex-Logo-PNG-HD-Images.png" class="mainImg">
   </a>
+
 <div class="main">
-  <div class="mainImgMany">
+  <div style="margin-top: 30%;" class="mainImgMany">
     <ButtonImg link="https://yandex.ru/finance?utm_source=subclasses_product&utm_content=fin_5&utm_campaign=home_web&pers_suggest=0"
         imageUrl="../public/icon/vecteezy_leadership-for-successful-new-idea-excellent-business-graph_9315255.png" 
         title="Финансы"
@@ -17,29 +18,47 @@
         imageUrl="../public/icon/vecteezy_3d-check-product_28047017.png" 
         title="Товары"
       />
-      <ButtonImg link="https://yandex.ru/medicine?utm_source=subclasses_product&utm_content=med_doc&utm_campaign=home_web&pers_suggest=0"
-        imageUrl="../public/iпcon/vecteezy_medical-red-first-aid-kit-with-medicine-on-transparent_54044054.png" 
+      <ButtonImg :img-scale="1.6" link="https://yandex.ru/medicine?utm_source=subclasses_product&utm_content=med_doc&utm_campaign=home_web&pers_suggest=0"
+        imageUrl="../public/icon/vecteezy_medical-red-first-aid-kit-with-medicine-on-transparent_54044054.png" 
         title="Медицина"
       />
   </div>
+
   <div class="search">
     <Search/>
+  </div>
+
+  <div>
+    <CourseWeather/>
+  </div>
+
+  <div class="ads-container">
+    <div class="ads-flex">
+      <BlocksBottomSearch title="Реклама 1"/>
+      <BlocksBottomSearch title="Реклама 2"/>
+      <BlocksBottomSearch title="Реклама 3"/>
+      <BlocksBottomSearch title="Реклама 4"/>
+      <BlocksBottomSearch title="Реклама 5"/>
+      <BlocksBottomSearch title="Реклама 6"/>
+    </div>
   </div>
 </div>
 </template>
 
 <script setup lang="ts">
+import CourseWeather from './views/CourseWeather.vue';
+import BlocksBottomSearch from './views/BlocksBottomSearch.vue';
 import ButtonImg from './UI/ButtonImg.vue';
 import Search from './views/Search.vue';
 </script>
 
 <style scoped>
 .main{
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  box-sizing: border-box;
 }
 .mainImg{
   position: fixed;
@@ -56,5 +75,37 @@ import Search from './views/Search.vue';
 .mainImgMany{
   display: flex;
   align-items: center;
+}
+.ads-container {
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.ads-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ads-flex > * {
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 200px;
+  max-width: 300px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .ads-flex > * {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .ads-flex > * {
+    flex: 1 1 100%;
+  }
 }
 </style>
