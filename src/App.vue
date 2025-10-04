@@ -3,9 +3,9 @@
   <a href="#mainImg">
     <img src="../public/icon/Yandex-Logo-PNG-HD-Images.png" class="mainImg">
   </a>
-
+  
 <div class="main">
-  <div style="margin-top: 30%;" class="mainImgMany">
+  <div style="margin-top: 15%;" class="mainImgMany">
     <ButtonImg link="https://yandex.ru/finance?utm_source=subclasses_product&utm_content=fin_5&utm_campaign=home_web&pers_suggest=0"
         imageUrl="../public/icon/vecteezy_leadership-for-successful-new-idea-excellent-business-graph_9315255.png" 
         title="Финансы"

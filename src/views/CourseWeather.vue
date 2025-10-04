@@ -30,7 +30,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
+
+const intervalId = ref<number | null>(null)
 
 interface RatesData {
   USD: number
@@ -91,11 +93,15 @@ async function fetchRates() {
 
 onMounted(() => {
   fetchRates()
-  
   // Обновляем данные каждые 10 минут
-  setInterval(() => {
-    fetchRates()
-  }, 10 * 60 * 1000)
+  intervalId.value = setInterval(fetchRates, 10 * 60 * 1000)
+})
+
+onUnmounted(() => {
+  if (intervalId.value) {
+    clearInterval(intervalId.value)
+    intervalId.value = null
+  }
 })
 </script>
 
